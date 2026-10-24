@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0b0a08;
+  --bg2: #141009;
+  --panel: #17140f;
+  --panel-2: #1d1810;
+  --border: #3a2f1d;
+  --border-soft: #2a2216;
+  --ink: #e9e1cf;
+  --ink-dim: #a89a7c;
+  --ink-faint: #6f6350;
+  --accent: #c9a227;
+  --accent-dim: #8a6f1c;
+  --accent-soft: rgba(201, 162, 39, 0.14);
+  --danger: #8a3a30;
+  --font-display: 'Noto Serif KR', serif;
+  --font-body: 'Noto Serif KR', serif;
+  --font-ui: 'Noto Sans KR', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Noto Sans KR', monospace;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% -10%, #221b0f 0%, var(--bg) 55%),
+    var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0a08;
+}
+::-webkit-scrollbar-thumb {
+  background: #3a2f1d;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9a227;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+@keyframes kpCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(-14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes titleFade {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 240s linear infinite;
+}
+
+.animate-bob {
+  animation: bob 1.4s ease-in-out infinite;
+}
+
+.animate-card-in {
+  animation: kpCardIn 0.35s cubic-bezier(0.2, 0.9, 0.25, 1) forwards;
+}
+
+/* Corner bracket styles */
+.corner-bracket {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--accent-dim);
+  pointer-events: none;
+  transition: border-color 0.2s ease;
+}
+.corner-bracket.tl {
+  top: 8px;
+  left: 8px;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+.corner-bracket.tr {
+  top: 8px;
+  right: 8px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+.corner-bracket.bl {
+  bottom: 8px;
+  left: 8px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+.corner-bracket.br {
+  bottom: 8px;
+  right: 8px;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+
+/* Scene banner corners */
+.scene-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--accent);
+  opacity: 0.65;
+  pointer-events: none;
+}
+.scene-corner.tl {
+  top: 9px;
+  left: 9px;
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+.scene-corner.tr {
+  top: 9px;
+  right: 9px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+.scene-corner.bl {
+  bottom: 9px;
+  left: 9px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+.scene-corner.br {
+  bottom: 9px;
+  right: 9px;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+
+/* Character entrance animation when joining on the left */
+@keyframes charSlideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-char-slide-in-left {
+  animation: charSlideInLeft 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
